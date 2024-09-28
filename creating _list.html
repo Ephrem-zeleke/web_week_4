@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Creating list</title>
+</head>
+<body>
+
+        <p>Please add some text to add to the list</p>
+        <input id="new-text">
+        <button id="add-button">Add</button>
+
+        <!-- create empty unordered list-->
+        <ul id="list-of-text"></ul>
+
+        <!--add another button to clear every item list-->
+        <button id="clear">Clear</button>
+
+
+<script>
+
+        // now we can assign a variable and find the elements from the page
+
+        let textInput = document.querySelector('#new-text')
+        let addButton = document.querySelector('#add-button')
+        let textList = document.querySelector('#list-of-text')
+        let clearButton = document.querySelector('#clear')
+
+        let elementsInList = 0 // to validate the amount of list item and initialize counting the number of item in the list
+        let max_elements = 10 // list item should not be more than 10
+
+        // add an event listener for the whole document to make the enter key to add an item to the list
+        document.addEventListener('keyup', function (){
+            if(event.keyCode ===13){
+                addButton.click()
+            }
+        })
+
+        // now we have to add an event listener to the add button to respond everytime we click
+        addButton.addEventListener('click', function (){
+
+            // read the text from the textInput and assign it in a new variable
+        let newTextInput = textInput.value.trim()
+
+            if(newTextInput.length === 0){ // if the user doesn't put anything in the input and try to add empty list
+                alert('enter some text') // display an alert message and return
+                return
+            }
+            if(newTextInput.length > 50){
+                alert('more than 50 character')
+                return
+            }
+
+            if (elementsInList >= max_elements) {
+                    alert('No more elements can be added to the list')
+                    return
+                }
+            // create a list item
+        let newListItem = document.createElement('li')
+        newListItem.innerHTML = newTextInput
+        // add the new list as a child of the ul
+        textList.appendChild(newListItem)
+            // clear the input after we add the item to the list
+        textInput.value = ''
+
+        elementsInList++ // counting the number of item in the list
+        })
+        // add an event listener for the clear button
+        clearButton.addEventListener('click', function (){
+            textList.innerHTML = ''
+            elementsInList = 0
+            textInput.value = ''
+        })
+
+</script>
+
+
+
+</body>
+</html>
