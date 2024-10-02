@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student's enrollment status </title>
+</head>
+<body>
+
+    <!--writing our page elements -->
+    <p>How many credit are you taking this semester?</p>
+    <input type="number" id="credit_count">
+    <button id="submit_credit">Enter</button>
+
+    <p id="status_message"></p>
+
+<script>
+
+    // assign a variable and find the elements from our page
+
+    let submitButton = document.querySelector('#submit_credit')
+    let creditCount = document.querySelector('#credit_count')
+    let statusMessage = document.querySelector('#status_message')
+
+    // add an event listener to the enter button
+
+    submitButton.addEventListener('click', function (){
+      let credit = creditCount.value
+      if(credit>=12){
+        statusMessage.innerHTML = 'You are enrolled as a full time student'
+      }
+      else if (credit>=6){
+        statusMessage.innerHTML = 'You are enrolled as a half time student'
+      }else if (credit >=0){
+        statusMessage.innerHTML = 'You are enrolled less than a half time student'
+      }
+      else {
+        statusMessage.innerHTML = 'Error, you should enter a valid number, positive number'
+      }
+    })
+
+
+
+</script>
+
+</body>
+</html>

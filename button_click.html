@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Button Click</title>
+</head>
+<body>
+
+<!-- Write your HTML content here -->
+<!--we are adding the button click here -->
+    <button>Click here</button>
+<script>
+
+    // now here we write a code to find the button element in the page
+    let button =document.querySelector('button')
+
+    // let us add an event listener for the click event, with a callback function
+    // the callback function run when the event (clicking the button) happens
+
+    button.addEventListener('click', function (){alert('you clicked the button!')})
+//     modifying the button text
+    button.innerHTML = 'the button has been clicked'
+
+</script>
+
+</body>
+</html>

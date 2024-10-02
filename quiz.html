@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz program</title>
+</head>
+
+
+<body>
+
+    <p>What is the capital city of wisconsin</p>
+
+    <button class="wrong-answer">Bayfield</button>
+    <button id="correct-answer">Madison</button>
+    <button class="wrong-answer">Milwaukee</button>
+
+    <p id="result"></p>
+
+<script>
+    <!--  select the correct answer button by id -->
+    // let us assign a variable for the correct answer button and find the button element in the html
+    let correctAnswerButton = document.querySelector('#correct-answer')
+
+    // adding default background color
+
+    let defaultButtonBackground = correctAnswerButton.style.background
+
+    // select the result paragraph by id and show the correct answer when the user click the correct answer.
+
+    let result = document.querySelector('#result')
+
+    // select all the wrong answer
+
+    let wrongAnswerButton = document.querySelectorAll('.wrong-answer')
+    wrongAnswerButton.forEach(function (wrongAnswerButton){
+        // adding event listener for each button
+        wrongAnswerButton.addEventListener('click', function (){
+            result.innerHTML = 'Wrong answer! try again'
+            correctAnswerButton.style.background = defaultButtonBackground
+        })
+    })
+
+    // now we can add the event listener to the correct answer button
+
+    correctAnswerButton.addEventListener('click', function (){
+      result.innerHTML ='correct answer'
+      // this code will make the correct answer to display in the result paragraph
+      // change the style of the correct answer button
+      correctAnswerButton.style.background ='cyan'
+    })
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

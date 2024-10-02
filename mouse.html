@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mouse</title>
+</head>
+<body>
+
+    <p id="mouse-me">move the mouse over this message </p>
+
+    <script>
+        // find the mouse paragraph
+        let message = document.querySelector('#mouse-me')
+        // now we can add an event listener for the mouse paragraph
+
+        // counting how many times the mouse moves over the message (mouse-me) paragraph
+        // first let us create a variable to count how many times the mouse move on the message
+
+        let countMouse = 0
+
+        message.addEventListener('mouseover', function (){
+            countMouse = countMouse + 1
+            message.innerHTML = 'Your mouse has been on this message ' + countMouse + ' times'
+        })
+        // adding an event listener when the mouse move out from the paragraph
+        message.addEventListener('mouseout', function (){
+            message.innerHTML = 'Your mouse is not on this message'
+        })
+    </script>
+
+</body>
+</html>
